@@ -405,14 +405,29 @@ buscador.addEventListener("keyup", function(){
 
 let texto = buscador.value.toLowerCase();
 
-let items = document.querySelectorAll(".item");
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let items = card.querySelectorAll(".item");
+let encontrados = 0;
 
 items.forEach(item => {
 
 if(item.textContent.toLowerCase().includes(texto)){
 item.style.display = "flex";
+encontrados++;
 }else{
 item.style.display = "none";
+}
+
+});
+
+if(encontrados > 0 || texto === ""){
+card.style.display = "block";
+}else{
+card.styledisplay = "none";
+card.style.display = "none";
 }
 
 });
