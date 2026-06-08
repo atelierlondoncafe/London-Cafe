@@ -240,6 +240,24 @@ Un espacio elegante y cálido pensado para disfrutar un excelente café, desayun
 Menú
 </h2>
 
+<div style="max-width:600px;margin:0 auto 40px;">
+<input
+type="text"
+id="buscador"
+placeholder="Buscar en la carta..."
+style="
+width:100%;
+padding:18px 20px;
+font-size:16px;
+border:none;
+border-radius:16px;
+background:white;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+outline:none;
+font-family:'Inter',sans-serif;
+">
+</div>
+
 <div class="menu-grid">
 
 <div class="card">
@@ -378,6 +396,30 @@ San Martín 646 · Concepción del Uruguay · Entre Ríos
 </p>
 
 </footer>
+
+<script>
+
+const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("keyup", function(){
+
+let texto = buscador.value.toLowerCase();
+
+let items = document.querySelectorAll(".item");
+
+items.forEach(item => {
+
+if(item.textContent.toLowerCase().includes(texto)){
+item.style.display = "flex";
+}else{
+item.style.display = "none";
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
